@@ -23,7 +23,6 @@ Cookies stealing from
 ```
 python -m pip install pywin32
 python -m pip install pysqlite3
-
 ```
 
 ### email
