@@ -1,7 +1,3 @@
-gooI use pyinstaller for compilation.
-
-pyinstaller main.py -F -w
-
 # StealingPy
 
 Stealing passwords and cookies from web browsers
