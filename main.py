@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import cookies
-import passworld
+import password
 import os
 import zipfile
 import getpass
