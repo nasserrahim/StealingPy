@@ -17,8 +17,8 @@ Cookies stealing from
 ## Installing
 ### Install lib
 ```
-python -m pip install pywin32
-python -m pip install pysqlite3
+python3 -m pip install pywin32
+python3 -m pip install pysqlite3
 ```
 
 ### email
