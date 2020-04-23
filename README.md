@@ -27,7 +27,7 @@ change email setting in main.py
 
 ### pyinstaller
 ```
-python -m pip install pyinstaller
+python3 -m pip install pyinstaller
 pyinstaller main.py -F -w
 ```
 
